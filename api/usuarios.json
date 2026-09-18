@@ -28,13 +28,6 @@
         "email": null
     },
     {
-        "id": 5,
-        "nome": "Joao",
-        "idade": 22,
-        "cidade": "Jandira",
-        "email": "mpfrancisco2003@gmail.com"
-    },
-    {
         "id": 6,
         "nome": "Mariana",
         "idade": 20,
