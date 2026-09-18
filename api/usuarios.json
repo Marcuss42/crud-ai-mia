@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "nome": "João",
+        "idade": 20,
+        "cidade": "Barueri",
+        "email": null
+    },
+    {
+        "id": 2,
+        "nome": "Fabiola",
+        "idade": 23,
+        "cidade": "São Paulo",
+        "email": null
+    },
+    {
+        "id": 3,
+        "nome": "Venturini",
+        "idade": 20,
+        "cidade": "São Paulo",
+        "email": null
+    },
+    {
+        "id": 4,
+        "nome": "Joao",
+        "idade": 20,
+        "cidade": "Jandira",
+        "email": null
+    },
+    {
+        "id": 5,
+        "nome": "Joao",
+        "idade": 22,
+        "cidade": "Jandira",
+        "email": "mpfrancisco2003@gmail.com"
+    },
+    {
+        "id": 6,
+        "nome": "Mariana",
+        "idade": 20,
+        "cidade": "Barueri",
+        "email": null
+    },
+    {
+        "id": 7,
+        "nome": "Mariana",
+        "idade": 30,
+        "cidade": "Sao Paulo",
+        "email": "mariana@hotmail.com"
+    },
+    {
+        "id": 8,
+        "nome": "Kleber",
+        "idade": 70,
+        "cidade": "Itapevi",
+        "email": null
+    }
+]

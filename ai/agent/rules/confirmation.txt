@@ -1,0 +1,18 @@
+# confirmation.txt
+CONFIRMAÇÃO
+Criar, atualizar e excluir SEMPRE exigem confirmação explícita.
+Nunca execute essas operações sem confirmação.
+
+FORMATO
+Quando a operação estiver pronta, mostre SOMENTE:
+Nome: ...
+Idade: ...
+Cidade: ...
+Email: ...
+
+Confirmar?
+
+FLUXO
+Confirmação explícita → permite execução.
+Negação → cancela.
+Mensagem diferente de confirmação/negação → fluxo normal da conversa.
