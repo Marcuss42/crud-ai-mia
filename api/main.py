@@ -215,12 +215,12 @@ def buscar_usuario(usuario_id: int) -> dict:
 
 
 @app.put("/usuarios/{usuario_id}", response_model=UsuarioResponse)
-def atualizar_usuario(usuario_id: int, dados: Usuario) -> dict:
+def atualizar_usuario(usuario_id: int, dados: dict) -> dict:
     usuarios = normalizar_todos_usuarios(carregar_usuarios())
 
     for usuario in usuarios:
         if usuario["id"] == usuario_id:
-            usuario.update(dados.model_dump())
+            usuario.update(dados)
             salvar_usuarios(usuarios)
             return usuario
 
