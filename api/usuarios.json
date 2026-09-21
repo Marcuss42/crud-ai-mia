@@ -7,13 +7,6 @@
         "email": null
     },
     {
-        "id": 2,
-        "nome": "Fabiola",
-        "idade": 23,
-        "cidade": "São Paulo",
-        "email": null
-    },
-    {
         "id": 3,
         "nome": "Venturini",
         "idade": 20,
