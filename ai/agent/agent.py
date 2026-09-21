@@ -116,7 +116,7 @@ def processar_confirmacao(mensagem: str) -> str | None:
     if not estado.operacao_pendente:
         return None
 
-    confirmacao = verificar_confirmacao(mensagem)
+    confirmacao = verificar_confirmacao(mensagem, estado.mensagens, estado.operacao_pendente)
 
     if confirmacao is True:
         operacao = estado.operacao_pendente
@@ -155,12 +155,7 @@ def processar_tool(nome: str, argumentos: dict) -> str | None:
         novos = argumentos.get("usuario", {})
         usuario = estado.usuario_em_criacao or {}
 
-        campos_validos = {
-            "nome",
-            "idade",
-            "cidade",
-            "email"
-        }
+        campos_validos = ("nome", "idade", "cidade", "email")
 
         mensagem_usuario = normalizar_texto(" ".join(
             m["content"]
@@ -346,32 +341,12 @@ def executar_agente(mensagem: str) -> str:
         estado.adicionar_mensagem("assistant", resposta)
         return resposta
 
-    if nome_tool in {"criar_usuario", "atualizar_usuario", "deletar_usuario"} and not estado.operacao_pendente:
-        analise = client.chat.completions.create(
-            model=MODEL,
-            messages=[
-                {
-                    "role": "system",
-                    "content": (
-                        "Analise TODO o histórico da conversa.\n"
-                        "A operação representada pela tool recebida já foi explicitamente confirmada pelo usuário?\n"
-                        "Considere a sequência completa da conversa.\n"
-                        "Não execute nenhuma operação.\n"
-                        "Responda SOMENTE SIM ou NAO."
-                    )
-                },
-                *historico
-            ],
-            tools=tools,
-            tool_choice="none",
-            reasoning_effort="low",
-            max_completion_tokens=256
-        )
+    if nome_tool in ("criar_usuario", "atualizar_usuario", "deletar_usuario") and not estado.operacao_pendente:
+        operacao = {"nome": nome_tool, "argumentos": argumentos}
 
-        confirmado = (analise.choices[0].message.content or "").strip().casefold() == "sim"
+        confirmado = verificar_confirmacao(mensagem, historico, operacao)
 
-        if confirmado:
-            operacao = {"nome": nome_tool, "argumentos": argumentos}
+        if confirmado is True:
             info(f"CONFIRMAÇÃO DETECTADA NO HISTÓRICO | executando: {operacao!r}")
 
             try:
