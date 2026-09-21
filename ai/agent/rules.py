@@ -11,13 +11,7 @@ def carregar_regras() -> str:
 
     regras = []
 
-    for arquivo in sorted(
-        RULES_DIR.glob("*.txt")
-    ):
-        regras.append(
-            arquivo.read_text(
-                encoding="utf-8"
-            )
-        )
+    for arquivo in sorted(RULES_DIR.glob("*.txt")):
+        regras.append(arquivo.read_text(encoding="utf-8"))
 
     return "\n\n".join(regras)

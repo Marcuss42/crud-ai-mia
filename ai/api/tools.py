@@ -27,10 +27,7 @@ def obter_todas_tools() -> list[dict]:
 
     nomes = [
         nome
-        for nome, funcao in inspect.getmembers(
-            api_client,
-            inspect.isfunction
-        )
+        for nome, funcao in inspect.getmembers(api_client, inspect.isfunction)
         if funcao.__module__ == api_client.__name__
         and not nome.startswith("_")
     ]

@@ -19,9 +19,7 @@ NEGACOES = {
 }
 
 
-def verificar_confirmacao(
-    mensagem: str
-) -> bool | None:
+def verificar_confirmacao(mensagem: str) -> bool | None:
     texto = mensagem.strip().casefold()
 
     if texto in CONFIRMACOES:
@@ -33,30 +31,20 @@ def verificar_confirmacao(
     return None
 
 
-def formatar_confirmacao(
-    dados: dict
-) -> str:
+def formatar_confirmacao(dados: dict) -> str:
     linhas = []
 
     if "nome" in dados:
-        linhas.append(
-            f"Nome: {dados['nome']}"
-        )
+        linhas.append(f"Nome: {dados['nome']}")
 
     if "idade" in dados:
-        linhas.append(
-            f"Idade: {dados['idade']}"
-        )
+        linhas.append(f"Idade: {dados['idade']}")
 
     if "cidade" in dados:
-        linhas.append(
-            f"Cidade: {dados['cidade']}"
-        )
+        linhas.append(f"Cidade: {dados['cidade']}")
 
     if "email" in dados:
-        linhas.append(
-            f"Email: {dados['email']}"
-        )
+        linhas.append(f"Email: {dados['email']}")
 
     linhas.append("")
     linhas.append("Confirmar?")

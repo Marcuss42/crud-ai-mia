@@ -16,6 +16,4 @@ config.read(CONFIG_FILE, encoding="utf-8")
 API_URL = config["api"]["url"]
 MODEL = config["groq"]["model"]
 
-client = Groq(
-    api_key=os.getenv("GROQ_API_KEY")
-)
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))

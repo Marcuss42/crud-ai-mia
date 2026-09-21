@@ -9,10 +9,7 @@ def criar_usuario(usuario: dict) -> dict:
     Campos: nome obrigatório; idade obrigatória; cidade obrigatória; email opcional.
     Use somente dados fornecidos pelo usuário. Nunca invente valores.
     """
-    response = requests.post(
-        f"{API_URL}/usuarios",
-        json=usuario
-    )
+    response = requests.post(f"{API_URL}/usuarios", json=usuario)
     response.raise_for_status()
     return response.json()
 
@@ -42,10 +39,7 @@ def listar_usuarios(
         if valor is not None
     }
 
-    response = requests.get(
-        f"{API_URL}/usuarios",
-        params=params
-    )
+    response = requests.get(f"{API_URL}/usuarios", params=params)
     response.raise_for_status()
     return response.json()
 
@@ -75,10 +69,7 @@ def contar_usuarios(
         if valor is not None
     }
 
-    response = requests.get(
-        f"{API_URL}/usuarios/contagem",
-        params=params
-    )
+    response = requests.get(f"{API_URL}/usuarios/contagem", params=params)
     response.raise_for_status()
     return response.json()["quantidade"]
 
@@ -87,26 +78,18 @@ def buscar_usuario(usuario_id: int) -> dict:
     """
     Busca um usuário pelo ID exato.
     """
-    response = requests.get(
-        f"{API_URL}/usuarios/{usuario_id}"
-    )
+    response = requests.get(f"{API_URL}/usuarios/{usuario_id}")
     response.raise_for_status()
     return response.json()
 
 
-def atualizar_usuario(
-    usuario_id: int,
-    dados: dict
-) -> dict:
+def atualizar_usuario(usuario_id: int, dados: dict) -> dict:
     """
     Atualiza usuário existente pelo ID.
     dados contém somente os campos a alterar.
     Nunca invente valores.
     """
-    response = requests.put(
-        f"{API_URL}/usuarios/{usuario_id}",
-        json=dados
-    )
+    response = requests.put(f"{API_URL}/usuarios/{usuario_id}", json=dados)
     response.raise_for_status()
     return response.json()
 
@@ -115,8 +98,6 @@ def deletar_usuario(usuario_id: int) -> dict:
     """
     Exclui usuário existente pelo ID.
     """
-    response = requests.delete(
-        f"{API_URL}/usuarios/{usuario_id}"
-    )
+    response = requests.delete(f"{API_URL}/usuarios/{usuario_id}")
     response.raise_for_status()
     return response.json()
