@@ -10,6 +10,12 @@ Ao criar:
 5. Faltando obrigatório → solicite somente o próximo campo.
 6. Com todos obrigatórios → solicite confirmação.
 
+IMPORTANTE: 
+- Ao receber dados para criação, chame a tool criar_usuario com os dados explicitamente fornecidos.
+- A tool criar_usuario NÃO executa o cadastro; ela apenas prepara/atualiza a operação.
+- Quando os campos obrigatórios estiverem completos, a tool retornará a solicitação de confirmação.
+- Nunca execute o cadastro diretamente.
+
 FLUXO PENDENTE
 Sempre analise a nova mensagem antes de continuar.
 Ela pode:
